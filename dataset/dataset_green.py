@@ -30,7 +30,7 @@ class dataset_green(Dataset):
 
     def __init__(self, root, train=False, val=False, test=False, train_test=False):
         """
-        主要目标： 获取所有图片的地址，并根据训练，验证，测试划分数据
+        Main objective: get the addresses of all images and divide the data by training, validation and testing.
         """
         self.train = train
         self.val = val
@@ -81,7 +81,7 @@ class dataset_green(Dataset):
 
     def __getitem__(self, index):
         """
-        一次返回一张图片的数据
+        Return data for one image at a time
         """
         img_path = self.imgs[index]
         mask_path = self.masks[index]
@@ -121,7 +121,7 @@ class dataset_green(Dataset):
 
 
 if __name__ == '__main__':
-    train_data_root = '/home/lz/sgd/data/'  # 训练集存放路径
+    train_data_root = '/home/lz/sgd/data/'  # Training set storage path
     test_data = dataset_green(train_data_root, test=True)
 
     train_dataloader = DataLoader(test_data, batch_size=1, shuffle=False, num_workers=1)
