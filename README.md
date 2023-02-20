@@ -1,16 +1,18 @@
-# PyTorch 实践指南 
+Nano-ISML：Single vessel analysis method based on protein nanoparticles and image segmentation machine learning
 
-## 训练
-必须首先启动visdom：
+
+## train
+
+Start visdom first：
 
 ```
 python3 -m visdom.server
 ```
 
-然后使用如下命令启动训练：
+Then use the following command to start the training:
 
 ```
-# 在gpu0上训练,并把可视化结果保存在visdom 的classifier env上
+# Train on gpu0 and save the visualization results on the classifier env of visdom
 
 CUDA_VISIBLE_DEVICES=3 python3 train_red_2.py train --use-gpu --env=a-1
 CUDA_VISIBLE_DEVICES=3 python3 train_green_2.py train --use-gpu --env=a-1
@@ -19,12 +21,8 @@ CUDA_VISIBLE_DEVICES=3 python3 train_green_2.py train --use-gpu --env=a-1
 ```
 
 
-详细的使用命令 可使用
-```
-python main.py help
-```
 
-## 测试
+## test
 
 ```
 CUDA_VISIBLE_DEVICES=0 python.exe train_red_2.py test
@@ -32,10 +30,10 @@ CUDA_VISIBLE_DEVICES=0 python.exe train_green_2.py test
 ```
 
 
-# 数据标注情况
+##  Data format
 
- 红色原图： Image {}_c1.png
- 绿色原图： Image {}_c2.png
+ FTn Confocal Image（Red/magenta） ： Image {}_c1.png
+ Vessel Confocal Image（Green）： Image {}_c2.png
  
- 红色标注： 1.1.png
- 绿色标注： 2.1.png
+ FTn Confocal Image Annotations： 1.1.png
+ Vessel Confocal Image Annotations： 2.1.png
